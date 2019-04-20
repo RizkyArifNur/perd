@@ -370,7 +370,12 @@ send@0.16.2:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
-serd@../:
+"serd@file:..":
+  version "0.0.1"
+  dependencies:
+    express "^4.16.4"
+
+"serd@file:../":
   version "0.0.1"
   dependencies:
     express "^4.16.4"

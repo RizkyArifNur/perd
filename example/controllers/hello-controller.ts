@@ -1,8 +1,13 @@
-import { BaseController, GET, router } from 'serd'
+import { BaseController, ErrorHandler, GET, router } from 'serd'
 @router('/hello')
 export class HelloController extends BaseController {
-  @GET('/')
+  @GET()
   async sayHello() {
-    return 'hello World'
+    return 'Hello World'
+  }
+
+  @GET('/:name')
+  async sayHelloWithQuery(data: { name: string }) {
+    return `Hello ${data.name}`
   }
 }
