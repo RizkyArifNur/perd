@@ -2,7 +2,7 @@ import express, { Request, Response, Router } from 'express'
 import { RequestHandler } from 'express-serve-static-core'
 import { ErrorHandler } from './error-handler'
 
-type Methods = 'GET' | 'POST' | 'PUT' | 'DELETE'
+type Methods = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
 
 interface IRouterInfo {
   callback: RequestHandler
@@ -117,6 +117,27 @@ export function PUT(path?: string) {
 }
 
 /**
+ * Decorators to create route with HTTP verb `PATCH`
+ * @remarks
+ * target function must be a `async` function that can be return any value,
+ * you can get the `req.params` `req.query` `req.body`
+ * in single param from target function
+ * example :
+ * ```ts
+ * @PATCH('/friend/:id')
+ * async function sayHello(params :{id : string},req? : express.Request,res? :express.Response){
+ *  params.id
+ * }
+ * ```
+ * @param path optional, path of your route, lead it with slash `/`
+ * if you're not define the path of your route, `Nerd` will automatically set the path to
+ * your function name
+ */
+export function PATCH(path?: string) {
+  return route(path, 'PATCH')
+}
+
+/**
  * Decorators to create route with HTTP verb `DELETE`
  * @remarks
  * target function must be a `async` function that can be return any value,
@@ -156,6 +177,9 @@ export function router(basePath: string): ClassDecorator {
           break
         case 'PUT':
           targetRouters.put(basePath + path, callback)
+          break
+        case 'PATCH':
+          targetRouters.patch(basePath + path, callback)
           break
         case 'DELETE':
           targetRouters.delete(basePath + path, callback)
