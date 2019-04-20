@@ -25,7 +25,13 @@ export function route(path?: string, method: Methods = 'GET'): MethodDecorator {
       path = key
     }
     const callback = async (req: Request, res: Response) => {
-      res.send(await target[key]({ ...req.params, ...req.query, ...req.body }))
+      res.send(
+        await target[key](
+          { ...req.params, ...req.query, ...req.body },
+          req,
+          res
+        )
+      )
     }
 
     if (!target.routerInfos) {
