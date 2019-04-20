@@ -1,0 +1,20 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Example usage serd",
+  "main": "dist/index.js",
+  "author": "Rizky Arif Nur Choir",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "serd": "../"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.4"
+  }
+}
