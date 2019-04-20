@@ -3,28 +3,28 @@ import { RequestHandler } from 'express-serve-static-core'
 
 type Methods = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
-interface RouterInfo {
-  path: string
-  method: Methods
+interface IRouterInfo {
   callback: RequestHandler
+  method: Methods
+  path: string
 }
 
 export class BaseController {
-  public router = express.Router()
-  public basePath = ''
-  public routerInfos: RouterInfo[] = []
-
   static routers(): Router {
     return this.prototype.router
   }
+
+  public router = express.Router()
+  public basePath = ''
+  public routerInfos: IRouterInfo[] = []
 }
 
 export function route(path?: string, method: Methods = 'GET'): MethodDecorator {
-  return function(target: BaseController, key: string) {
+  return (target: BaseController, key: string) => {
     if (!path) {
       path = key
     }
-    const callback = async function(req: Request, res: Response) {
+    const callback = async (req: Request, res: Response) => {
       res.send(await target[key]({ ...req.params, ...req.query, ...req.body }))
     }
 
@@ -32,8 +32,8 @@ export function route(path?: string, method: Methods = 'GET'): MethodDecorator {
       target.routerInfos = []
     }
     target.routerInfos.push({
-      method,
       callback,
+      method,
       path
     })
   }
@@ -56,31 +56,30 @@ export function del(path?: string) {
 }
 
 export function router(basePath: string): ClassDecorator {
-  return function(target: typeof BaseController) {
-    console.log('class decorator')
+  return target => {
     if (!target.prototype.router) {
       target.prototype.router = express.Router()
     }
 
-    const router = target.prototype.router
+    const targetRouters = target.prototype.router
 
     target.prototype.routerInfos.forEach(routerInfo => {
       const { method, callback, path } = routerInfo
       switch (method) {
         case 'GET':
-          router.get(basePath + path, callback)
+          targetRouters.get(basePath + path, callback)
           break
         case 'POST':
-          router.post(basePath + path, callback)
+          targetRouters.post(basePath + path, callback)
           break
         case 'PUT':
-          router.put(basePath + path, callback)
+          targetRouters.put(basePath + path, callback)
           break
         case 'DELETE':
-          router.delete(basePath + path, callback)
+          targetRouters.delete(basePath + path, callback)
           break
       }
     })
     target.prototype.basePath = basePath
-  } as any
+  }
 }
