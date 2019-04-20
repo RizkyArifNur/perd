@@ -1,0 +1,9 @@
+{
+  "name": "serd",
+  "version": "0.0.1",
+  "description": "Simple Express Router Decorators",
+  "main": "index.ts",
+  "repository": "https://github.com/RizkyArifNur/serd.git",
+  "author": "Rizky Arif Nur Choir",
+  "license": "MIT"
+}
