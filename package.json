@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Powerful Express Router Decorators",
   "main": "./dist/index.js",
-  "repository": "https://github.com/RizkyArifNur/serd.git",
+  "repository": "https://github.com/RizkyArifNur/perd.git",
   "author": "Rizky Arif Nur Choir",
   "license": "MIT",
   "scripts": {
@@ -19,5 +19,8 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.4.4"
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
