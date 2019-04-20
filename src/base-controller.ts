@@ -19,7 +19,7 @@ export class BaseController {
   private router = express.Router()
 }
 
-export function route(path?: string, method: Methods = 'GET'): MethodDecorator {
+function route(path?: string, method: Methods = 'GET'): MethodDecorator {
   return (target: BaseController, key: string) => {
     if (!path) {
       path = '/' + key
