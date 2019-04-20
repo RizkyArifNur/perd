@@ -39,19 +39,19 @@ export function route(path?: string, method: Methods = 'GET'): MethodDecorator {
   }
 }
 
-export function get(path?: string) {
+export function GET(path?: string) {
   return route(path, 'GET')
 }
 
-export function post(path?: string) {
+export function POST(path?: string) {
   return route(path, 'POST')
 }
 
-export function put(path?: string) {
+export function PUT(path?: string) {
   return route(path, 'PUT')
 }
 
-export function del(path?: string) {
+export function DELETE(path?: string) {
   return route(path, 'DELETE')
 }
 
