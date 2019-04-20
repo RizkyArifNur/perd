@@ -1,7 +1,7 @@
 {
-  "name": "serd",
+  "name": "perd",
   "version": "0.0.1",
-  "description": "Simple Express Router Decorators",
+  "description": "Powerful Express Router Decorators",
   "main": "./dist/index.js",
   "repository": "https://github.com/RizkyArifNur/serd.git",
   "author": "Rizky Arif Nur Choir",

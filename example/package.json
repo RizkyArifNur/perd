@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "serd": "file:../"
+    "perd": "file:../"
   },
   "devDependencies": {
     "@types/express": "^4.16.1",

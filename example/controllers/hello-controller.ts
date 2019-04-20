@@ -1,4 +1,4 @@
-import { BaseController, ErrorHandler, GET, POST, router } from 'serd'
+import { BaseController, ErrorHandler, GET, POST, router } from 'perd'
 @router('/hello')
 export class HelloController extends BaseController {
   /**
@@ -14,7 +14,7 @@ export class HelloController extends BaseController {
    * you can define your route so simple like this
    * @param data - data that already bundled from `req.params` `req.query`
    */
-  @GET('/:name')
+  @GET('/sayHello/:name')
   async sayHelloWithQuery(data: { name: string }) {
     return `Hello ${data.name}`
   }

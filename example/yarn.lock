@@ -313,6 +313,11 @@ path-to-regexp@0.1.7:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
 
+"perd@file:../":
+  version "0.0.1"
+  dependencies:
+    express "^4.16.4"
+
 proxy-addr@~2.0.4:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.5.tgz#34cbd64a2d81f4b1fd21e76f9f06c8a45299ee34"
@@ -369,16 +374,6 @@ send@0.16.2:
     on-finished "~2.3.0"
     range-parser "~1.2.0"
     statuses "~1.4.0"
-
-"serd@file:..":
-  version "0.0.1"
-  dependencies:
-    express "^4.16.4"
-
-"serd@file:../":
-  version "0.0.1"
-  dependencies:
-    express "^4.16.4"
 
 serve-static@1.13.2:
   version "1.13.2"
