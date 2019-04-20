@@ -1,6 +1,6 @@
 {
   "name": "perd",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Powerful Express Router Decorators",
   "main": "./dist/index.js",
   "repository": "https://github.com/RizkyArifNur/perd.git",
@@ -8,18 +8,34 @@
   "license": "MIT",
   "scripts": {
     "lint": "tslint src/*.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"example/**/*.ts\"",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A",
+    "postversion": "git checkout master && git merge dev && git push"
   },
   "dependencies": {
     "express": "^4.16.4"
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "prettier": "^1.17.0",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.4.4"
   },
+  "keywords": [
+    "decorators",
+    "typescript",
+    "express",
+    "expressjs",
+    "routing",
+    "routers",
+    "clean"
+  ],
   "files": [
     "dist/**/*"
   ]

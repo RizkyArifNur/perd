@@ -15,7 +15,6 @@
       "require-const-for-all-caps"
     ],
     "space-before-function-paren": false,
-    "no-unused-variable": true,
     "comment-type": [false, "doc", "multiline"],
     "member-access": false
   },
