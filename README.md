@@ -17,7 +17,7 @@ Create your clean, simple, and readable express router only use typescript decor
 ## Features
 
 - Robust routing
-- Clean Readable Route
+- Clean and Readable Route
 
 ## Basic Usage
 
