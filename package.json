@@ -2,12 +2,13 @@
   "name": "serd",
   "version": "0.0.1",
   "description": "Simple Express Router Decorators",
-  "main": "index.ts",
+  "main": "./dist/index.js",
   "repository": "https://github.com/RizkyArifNur/serd.git",
   "author": "Rizky Arif Nur Choir",
   "license": "MIT",
   "scripts": {
-    "lint": "tslint src/*.ts"
+    "lint": "tslint src/*.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "express": "^4.16.4"
